@@ -1,0 +1,255 @@
+
+TESTING: Novels published during the year 1953 or 1996
+
+testing: year_1953_1996_novels(1953_1996_Novel)
+1953_1996_Novel = a_song_of_ice_and_fire_series
+
+1953_1996_Novel = fahrenheit451
+
+1953_1996_Novel = the_caves_of_steel
+
+1953_1996_Novel = neverwhere
+
+1953_1996_Novel = childhoods_end
+
+
+TESTING: Novels published during the period 1800 to 1900
+
+testing: period_1800_1900_novels(1800_1900_Novel)
+1800_1900_Novel = frankenstein
+
+1800_1900_Novel = the_time_machine
+
+1800_1900_Novel = the_20000_leagues_under_the_sea
+
+1800_1900_Novel = the_journey_to_the_center_of_the_earth
+
+1800_1900_Novel = the_war_of_the_worlds
+
+1800_1900_Novel = little_women
+
+
+TESTING: Characters who are fans of LOTR
+
+testing: lotr_fans(LOTR_Fan)
+LOTR_Fan = amy
+
+LOTR_Fan = gunther
+
+LOTR_Fan = monica
+
+LOTR_Fan = ursula
+
+LOTR_Fan = zelner
+
+
+TESTING: Authors of the novels owned by Chandler
+
+testing: author_names(Chandler's_novel_Author)
+Chandler's_novel_Author = george_rr_martin
+
+Chandler's_novel_Author = isaac_asimov
+
+Chandler's_novel_Author = william_gibson
+
+Chandler's_novel_Author = robert_heinlein
+
+Chandler's_novel_Author = arthur_clarke
+
+
+TESTING: Characters who are fans of Brandon Sanderson's novels
+
+testing: fans_names(Brandon_Sanderson_Fan)
+Brandon_Sanderson_Fan = amy
+
+Brandon_Sanderson_Fan = heckles
+
+Brandon_Sanderson_Fan = leonard
+
+Brandon_Sanderson_Fan = monica
+
+Brandon_Sanderson_Fan = nora
+
+Brandon_Sanderson_Fan = tag
+
+
+TESTING:  Novels common between either of Phoebe, Ross, and Monica
+
+testing: mutual_novels(Phoebe_Ross_Monica_Novel)
+Phoebe_Ross_Monica_Novel = the_princess_bride
+
+Phoebe_Ross_Monica_Novel = something_wicked_this_way_comes
+
+Phoebe_Ross_Monica_Novel = the_wheel_of_time_series
+
+Phoebe_Ross_Monica_Novel = the_time_machine
+
+
+TESTING: isMember
+
+testing: isMember(a,[a,b])
+yes
+
+testing: isMember(a,[[a],b])
+no
+
+testing: isMember([],[a,b])
+no
+
+testing: isMember(b,[a,[b,c]])
+no
+
+testing: isMember(c,[a,[b,[c]]])
+no
+
+testing: isMember(c,[a,b,c,d])
+yes
+
+
+TESTING: isUnion
+
+testing: isUnion([],[],XuY)
+XuY = []
+
+testing: isUnion([],[a,b],XuY)
+XuY = [a,b]
+
+testing: isUnion([a],[a,b],XuY)
+XuY = [a,b]
+
+testing: isUnion([a,b],[a],XuY)
+XuY = [b,a]
+
+testing: isUnion([a,b],[b,c],XuY)
+XuY = [a,b,c]
+
+testing: isUnion([b,c],[a,b],XuY)
+XuY = [c,a,b]
+
+testing: isUnion([a,b],[c,d],XuY)
+XuY = [a,b,c,d]
+
+testing: isUnion([a,[b]],[a,[a,b]],XuY)
+XuY = [[b],a,[a,b]]
+
+testing: isUnion([a,b,c],[a,[b,c]],XuY)
+XuY = [b,c,a,[b,c]]
+
+testing: isUnion([a,b,c],[a,[b,[d]],c],XuY)
+XuY = [b,a,[b,[d]],c]
+
+
+TESTING: isIntersection
+
+testing: isIntersection([],[],XnY)
+XnY = []
+
+testing: isIntersection([],[a,b],XnY)
+XnY = []
+
+testing: isIntersection([a],[a,b],XnY)
+XnY = [a]
+
+testing: isIntersection([a,b],[a],XnY)
+XnY = [a]
+
+testing: isIntersection([a,b],[b,c],XnY)
+XnY = [b]
+
+testing: isIntersection([b,c],[a,b],XnY)
+XnY = [b]
+
+testing: isIntersection([a,b],[c,d],XnY)
+XnY = []
+
+testing: isIntersection([a,[b]],[a,[a,b]],XnY)
+XnY = [a]
+
+testing: isIntersection([a,b,c],[a,[b,c]],XnY)
+XnY = [a]
+
+testing: isIntersection([a,b,c,[d]],[a,[b,[d]],c],XnY)
+XnY = [a,c]
+
+
+TESTING: isEqual
+
+testing: isEqual([],[])
+yes
+
+testing: isEqual([a],[a])
+yes
+
+testing: isEqual([a,b],[b,a])
+yes
+
+testing: isEqual([a,b,c],[a,b])
+no
+
+testing: isEqual([a,[a]],[a,a])
+no
+
+testing: isEqual([a,[a]],[[a],a])
+yes
+
+testing: isEqual([a,[b],[c]],[[b],[c],a])
+yes
+
+testing: isEqual([a,b,[c,d]],[a,b,c,d])
+no
+
+testing: isEqual([a,[b],[c,d]],[a,[b],[d,c]])
+no
+
+testing: isEqual([a,[b,[c,d]]],[a,[[c,d],b]])
+no
+
+
+TESTING: powerSet
+
+testing: powerSet([],P(X))
+P(X) = [[]]
+
+testing: powerSet([a],P(X))
+P(X) = [[a],[]]
+
+testing: powerSet([a,b],P(X))
+P(X) = [[a,b],[a],[b],[]]
+
+testing: powerSet([b,a],P(X))
+P(X) = [[b,a],[b],[a],[]]
+
+testing: powerSet([a,[b]],P(X))
+P(X) = [[a,[b]],[a],[[b]],[]]
+
+testing: powerSet([[a,b]],P(X))
+P(X) = [[[a,b]],[]]
+
+testing: powerSet([a,[]],P(X))
+P(X) = [[a,[]],[a],[[]],[]]
+
+testing: powerSet([a,b,[c]],P(X))
+P(X) = [[a,b,[c]],[a,b],[a,[c]],[a],[b,[c]],[b],[[c]],[]]
+
+testing: powerSet([a,[b,c]],P(X))
+P(X) = [[a,[b,c]],[a],[[b,c]],[]]
+
+testing: powerSet([a,[b,[c,[d]]]],P(X))
+P(X) = [[a,[b,[c,[d]]]],[a],[[b,[c,[d]]]],[]]
+
+
+TESTING puzzle
+
+take(goat,left,right)
+take(none,right,left)
+take(wolf,left,right)
+take(goat,right,left)
+take(cabbage,left,right)
+take(none,right,left)
+take(goat,left,right)
+
+TESTING puzzle
+
+
+TESTING puzzle
+
